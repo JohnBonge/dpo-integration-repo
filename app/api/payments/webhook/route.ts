@@ -4,7 +4,7 @@ import { createAuditLog } from '@/lib/audit-logs';
 import { BookingStatus, PaymentStatus } from '@prisma/client';
 import { createHmac, timingSafeEqual } from 'crypto';
 
-/* function verifyWebhookSignature(body: string, headers: Headers): boolean {
+function verifyWebhookSignature(body: string, headers: Headers): boolean {
   const webhookSecret = process.env.IREMBO_SECRET_KEY;
 
   if (!webhookSecret) {
@@ -62,19 +62,19 @@ import { createHmac, timingSafeEqual } from 'crypto';
   } catch {
     return false;
   }
-} */
+}
 
 export async function POST(request: Request) {
   try {
     const body = await request.text();
 
     // Verify webhook signature
-  /*  if (!verifyWebhookSignature(body, request.headers)) {
+    if (!verifyWebhookSignature(body, request.headers)) {
       return NextResponse.json(
         { error: 'Invalid webhook signature' },
         { status: 401 }
       );
-    } */
+    }
 
     // Parse webhook data
     let webhookData: unknown;
@@ -100,7 +100,7 @@ export async function POST(request: Request) {
       );
     }
 
-    /* const paymentData = (webhookData as { data: Record<string, unknown> }).data;
+    const paymentData = (webhookData as { data: Record<string, unknown> }).data;
     const invoiceNumber =
       typeof paymentData.invoiceNumber === 'string'
         ? paymentData.invoiceNumber
@@ -108,7 +108,7 @@ export async function POST(request: Request) {
     const transactionId =
       typeof paymentData.transactionId === 'string'
         ? paymentData.transactionId
-        : ''; */
+        : '';
 
     // Find booking
     const booking = await prisma.booking.findFirst({
@@ -127,7 +127,7 @@ export async function POST(request: Request) {
     }
 
     // Update booking based on payment status
-   /* const paymentStatus =
+    const paymentStatus =
       typeof paymentData.paymentStatus === 'string'
         ? paymentData.paymentStatus.toUpperCase()
         : '';
@@ -151,10 +151,10 @@ export async function POST(request: Request) {
     await prisma.booking.update({
       where: { id: booking.id },
       data: updateData,
-    }); */
+    });
 
     // Create payment event
-  /*  try {
+    try {
       await prisma.paymentEvent.create({
         data: {
           bookingId: booking.id,
@@ -187,7 +187,7 @@ export async function POST(request: Request) {
       });
     } catch {
       // Continue even if audit log creation fails
-    } */
+    }
 
     return NextResponse.json({ received: true });
   } catch {

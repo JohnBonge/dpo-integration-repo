@@ -224,9 +224,8 @@ export async function POST(request: Request) {
     include: { tourPackage: true },
   });
 
-// TODO: Integrate DPO initialize API here.
   // Create IremboPay payment invoice
-/*  const { invoiceId, paymentUrl } = await createChargeToken({
+  const { invoiceId, paymentUrl } = await createChargeToken({
     amount: Number(booking.totalAmount),
     currency: 'RWF',
     companyRef: booking.id,
@@ -234,7 +233,7 @@ export async function POST(request: Request) {
     // ... other payment data
   });
 
-  return NextResponse.json({ token, paymentUrl }); */
+  return NextResponse.json({ token, paymentUrl });
 }
 
 // POST /api/payments/webhook - Handle payment webhooks

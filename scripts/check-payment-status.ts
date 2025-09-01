@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-// import { verifyPayment } from '../lib/services/irembopay';
+import { verifyPayment } from '../lib/services/irembopay';
 
 // Load environment variables from .env file
 config();
@@ -10,7 +10,7 @@ async function checkPaymentStatus(invoiceId: string) {
       `🔍 Checking IremboPay payment status for invoice: ${invoiceId}`
     );
 
-   /*  const result = await verifyPayment(invoiceId);
+    const result = await verifyPayment(invoiceId);
 
     console.log('\n💳 IremboPay Payment Status:');
     console.log('- Success:', result.success);
@@ -19,7 +19,7 @@ async function checkPaymentStatus(invoiceId: string) {
     console.log('- Amount:', result.amount);
     console.log('- Reference:', result.reference);
     console.log('- Payment Method:', result.paymentMethod);
-    console.log('- Payment Reference:', result.paymentReference); */
+    console.log('- Payment Reference:', result.paymentReference);
   } catch (error) {
     console.error('❌ Error checking payment status:', error);
   }

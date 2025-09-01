@@ -4,18 +4,18 @@ import { config } from 'dotenv';
 config();
 
 // Check IremboPay environment variables
-// console.log('🔍 IremboPay Environment Variables Status:');
+console.log('🔍 IremboPay Environment Variables Status:');
 console.log('');
 
-/* const requiredVars = [
+const requiredVars = [
   'IREMBO_SECRET_KEY',
   'IREMBO_PAYMENT_ACCOUNT_ID',
   'NEXT_PUBLIC_IREMBO_PUBLIC_KEY',
   'IREMBOPAY_WEBHOOK_SECRET',
   'NEXT_PUBLIC_APP_URL',
 ];
-*/
-// const optionalVars = ['IREMBO_PRODUCT_CODE'];
+
+const optionalVars = ['IREMBO_PRODUCT_CODE'];
 
 console.log('📋 Required Variables:');
 requiredVars.forEach((varName) => {
@@ -51,7 +51,7 @@ console.log(`  Current NODE_ENV: ${process.env.NODE_ENV || 'NOT SET'}`);
 
 console.log('');
 console.log('📝 Notes:');
-/* console.log(
+console.log(
   '  - IREMBO_PRODUCT_CODE is optional (we use product mapping instead)'
 );
 console.log('  - IREMBOPAY_WEBHOOK_SECRET is needed for webhook security');
@@ -60,4 +60,4 @@ console.log(
 );
 console.log(
   '  - IREMBO_PAYMENT_ACCOUNT_ID should be your payment account identifier'
-); */
+);

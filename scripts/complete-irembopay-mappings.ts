@@ -9,7 +9,7 @@
  * Run with: npx tsx scripts/complete-irembopay-mappings.ts
  */
 
-/* import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import {
   IREMBO_PRODUCT_CODE_MAPPINGS,
   getAllIremboProductMappings,
@@ -21,7 +21,7 @@ const prisma = new PrismaClient();
 const IREMBO_DASHBOARD_PRODUCTS = [
   {
     code: 'PC-46825b777d',
-    name: 'Gorilla Trekking Advd44enture in Rwanda',
+    name: 'Gorilla Trekking Adventure in Rwanda',
     amount: 4000.0,
   },
   {
@@ -227,4 +227,3 @@ main().catch((error) => {
   console.error('❌ Script failed:', error);
   process.exit(1);
 });
-*/

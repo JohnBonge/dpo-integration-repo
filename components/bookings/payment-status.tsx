@@ -12,7 +12,7 @@ interface PaymentStatusProps {
 export function PaymentStatus({ bookingId }: PaymentStatusProps) {
   const [isLoading, setIsLoading] = useState(false);
 
-/*  const handlePayment = async () => {
+  const handlePayment = async () => {
     try {
       setIsLoading(true);
 
@@ -39,7 +39,7 @@ export function PaymentStatus({ bookingId }: PaymentStatusProps) {
     } finally {
       setIsLoading(false);
     }
-  }; */
+  };
 
   return (
     <Button onClick={handlePayment} disabled={isLoading} className='w-full'>
