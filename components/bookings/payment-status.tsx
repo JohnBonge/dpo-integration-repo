@@ -9,19 +9,16 @@ interface PaymentStatusProps {
   bookingId: string;
 }
 
-export function PaymentStatus({ bookingId }: PaymentStatusProps) {
+const PaymentStatus = ({ bookingId }: PaymentStatusProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handlePayment = async () => {
     try {
       setIsLoading(true);
 
-      // Initialize payment
       const response = await fetch('/api/payments/initialize', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ bookingId }),
       });
 
@@ -53,4 +50,6 @@ export function PaymentStatus({ bookingId }: PaymentStatusProps) {
       )}
     </Button>
   );
-}
+};
+
+export default PaymentStatus;
