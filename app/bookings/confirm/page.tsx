@@ -2,7 +2,7 @@
 
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { PaymentButton } from '@/components/payment/payment-button';
+import PaymentButton from '@/components/payment/payment-button';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import type { BookingWithTour } from '@/types/booking';

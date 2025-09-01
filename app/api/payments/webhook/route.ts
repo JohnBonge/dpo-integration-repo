@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 // import { createAuditLog } from '@/lib/audit-logs';
 // import { BookingStatus, PaymentStatus } from '@prisma/client';
-// import { createHmac, timingSafeEqual } from 'crypto';
+import { createHmac, timingSafeEqual } from 'crypto';
 
 function verifyWebhookSignature(body: string, headers: Headers): boolean {
   const webhookSecret = process.env.IREMBO_SECRET_KEY;
