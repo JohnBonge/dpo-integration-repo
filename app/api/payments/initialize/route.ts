@@ -4,6 +4,8 @@ import { z } from 'zod';
 import { createAuditLog } from '@/lib/audit-logs';
 import { createPaymentInvoice } from '@/lib/services/irembopay';
 
+
+
 export const dynamic = 'force-dynamic';
 
 // Validation schema for request body
@@ -59,7 +61,9 @@ export async function POST(request: Request) {
     };
 
     // ✅ Call IremboPay API
-    const { invoiceId, paymentUrl, reference } = await createPaymentInvoice(paymentData);
+   const { invoiceId, paymentUrl, reference } = await createPaymentInvoice(paymentData);
+
+   
 
     // ✅ Update booking with payment intent
     await prisma.booking.update({
