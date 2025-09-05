@@ -50,6 +50,7 @@ interface IremboInvoiceResponseData {
   invoiceNumber: string;
   paymentLinkUrl: string;
   transactionId: string;
+  paymentMethod?: string;
   paymentStatus?: string;
   amount: number;
   currency: string;
